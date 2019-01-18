@@ -13,6 +13,8 @@ coreyms.com
 123.555.1234
 123-555-1234
 123*555*1234
+800.555.1234
+900-555-1234
 
 Mr. Schafer
 Mr Smith
@@ -22,6 +24,20 @@ Mr. T
 
 
 comments : 
+
+*** \b is used for word boundary
+like in 5th line, if we want to find "ha" that has word 
+boundary at the beginnning, we will search like "\bha". And 
+if we want to search like word boundary at both beginnning
+and end then we will have to search like "\bha\b"
+
+*** ^ determines the beginnning of something. if we 
+want to search "ha" that is only the beginnning of the 
+sentence, the we will have to search like "^ha"
+
+*** $ will be used for determining the end "ha", like : 
+"ha$"
+
 *** \d matches digits. at line 12 and 13- we are seeing 
 there is a pattern of these numbers. 3 digits and after that
 a special character. so, we will write some regular expression
@@ -38,17 +54,18 @@ so this will return all the result that includes ". and -".
 at this moment we can write like : "\d\d\d[.-]" and final 
 regular expression will be like : "\d\d\d[.-]\d\d\d[.-]\d\d\d\d"
 
+*** if we want to search only the numbers that starts 
+with 800 or 900, then the regex would be like this:
+"[89]00[.-]\d\d\d[.-]\d\d\d\d". the first character set [89]
+means that any senctence that has 8 or 9. and rest is 
+described earlier.
 
+*** "\d" matches all the numbers. but what if we want to search
+only if there are numbers like "1,2,3,4,5". we can write like 
+this "[12345]". but there is a better way to do this. in that
+case, we can write like this : "[1-5]".
 
-*** \b is used for word boundary
-like in 5th line, if we want to find "ha" that has word 
-boundary at the beginnning, we will search like "\bha". And 
-if we want to search like word boundary at both beginnning
-and end then we will have to search like "\bha\b"
-
-*** ^ determines the beginnning of something. if we 
-want to search "ha" that is only the beginnning of the 
-sentence, the we will have to search like "^ha"
-
-*** $ will be used for determining the end "ha", like : 
-"ha$"
+*** same thing goes to if we search for character like "a,b,c...".
+we can write "[a-z]". this returns all the characters excepts 
+numbers and special ones whethes it is upper case or lower case.
+in some cases, we will have to write like this: [a-zA-Z]
