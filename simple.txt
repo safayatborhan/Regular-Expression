@@ -11,9 +11,44 @@ coreyms.com
 
 321-555-4321
 123.555.1234
+123-555-1234
+123*555*1234
 
 Mr. Schafer
 Mr Smith
 Ms Davis
 Mrs. Robinson
 Mr. T
+
+
+comments : 
+*** \d matches digits. at line 12 and 13- we are seeing 
+there is a pattern of these numbers. 3 digits and after that
+a special character. so, we will write some regular expression
+now. like if we want to search the first 3 digits, we will 
+have to search like : "\d\d\d". this will seach every place 
+which have 3 digits together. but after that, we have 
+"full stop/hyphen" here. To achieve this special characters, 
+we can use "."- this "." can search all characters excepts
+new line. but if we use this "." any other character will 
+be counted. like we can see that, line 15 will also be a 
+search result, if we use this. so for that, we will use
+character set. this character set is written like "[.-]".
+so this will return all the result that includes ". and -". 
+at this moment we can write like : "\d\d\d[.-]" and final 
+regular expression will be like : "\d\d\d[.-]\d\d\d[.-]\d\d\d\d"
+
+
+
+*** \b is used for word boundary
+like in 5th line, if we want to find "ha" that has word 
+boundary at the beginnning, we will search like "\bha". And 
+if we want to search like word boundary at both beginnning
+and end then we will have to search like "\bha\b"
+
+*** ^ determines the beginnning of something. if we 
+want to search "ha" that is only the beginnning of the 
+sentence, the we will have to search like "^ha"
+
+*** $ will be used for determining the end "ha", like : 
+"ha$"
