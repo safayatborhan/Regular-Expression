@@ -69,3 +69,13 @@ case, we can write like this : "[1-5]".
 we can write "[a-z]". this returns all the characters excepts 
 numbers and special ones whethes it is upper case or lower case.
 in some cases, we will have to write like this: [a-zA-Z]
+
+*** look the this example :
+cat
+mat
+pat
+bat
+if we want to search everything that ends with "at", we can 
+write "[a-z]at". but if we want to search everything that end
+with "at" excepts starts with "b", we can write regex like this:
+"[^b]at". 
