@@ -43,3 +43,9 @@ are the domain name. we have made group each of them so that
 we could make use of it later. and we can achieve the group 
 content by writting "$1, $2 ..." like this. $1 is first group
 $2 is second group. so on so forth....
+
+
+** copy and replace C# property : 
+(public\s\w+\s\w+)(\s\W\s(\w|\W)+)
+
+$1 { get; set; } \n
