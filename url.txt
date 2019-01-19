@@ -1,4 +1,22 @@
+
+
+
+
 https://www.google.com
 http://coreyms.com
 https://youtube.com
 https://www.nasa.gov
+
+
+comments : 
+"https?://(www\.)?([a-z]+)(\.+[a-z]+)"
+we have searched all of it, but if you see closely we could 
+have written like this : 
+
+https?://(www\.)?[a-z]+\.+[a-z]+
+
+the first "[a-z]+" are the url name and the second "[a-z]+"
+are the domain name. we have made group each of them so that
+we could make use of it later. and we can achieve the group 
+content by writting "$1, $2 ..." like this. $1 is first group
+$2 is second group. so on so forth....

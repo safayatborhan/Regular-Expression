@@ -79,3 +79,33 @@ if we want to search everything that ends with "at", we can
 write "[a-z]at". but if we want to search everything that end
 with "at" excepts starts with "b", we can write regex like this:
 "[^b]at". 
+
+
+*** we can make our life easier with quantifiers. instead of
+writting like this : "\d\d\d[.-]\d\d\d[.-]\d\d\d\d", we can 
+write like : "\d{3}[.-]\d{3}[.-]\d{4}". this will only be 
+used if we know the exact numbers of the characters. but what 
+if we don't know the number of the characters. here comes 
+another method. try looking line 19-23. in these lines 
+there are a bunch of prefix there like "mr, mr., ms etc". how 
+can we find these. let's start for findidng "mr" first. we 
+can write like this : "Mr\.". in this case, all search result have
+come that has a string like "mr.". but there are also some 
+string which doesn't have "." character. in that case, we will
+write like : "Mr\.?".(. থাকতেও পারে, নাও থাকতে পারে) this "?" returns whether there is one 
+"." character or zero "." character. so, after this, there 
+is a space. so we will write like : "Mr\.?\s". and after that
+you know there are some character between a-z. so it will be like : 
+"Mr\.?\s[a-z]". here we are seeing, we are getting only one
+word character search result after "mr. ". there will be a bunch 
+of characters. we will search it like : "Mr\.?\s[a-z]\w*".
+here this "\w*" returns characters count for 0 or more. just
+like we have used "?" earlier, where we have used it for 
+determining 0 or 1 "." character. 
+so far we have found the strings which have "mr. " at the 
+first of the string. but what about "mrs". in that case, we 
+will use group. group is obtained by parenthesis. like this :
+"M(r|s)\.?\s[a-z]\w*". at the top of the string there is an "M" 
+and after that there could be "r or s". using this search we 
+have obtained 4 search result. we still have one left. so, 
+we can write "M(r|s|rs)\.?\s[a-z]\w*". 
